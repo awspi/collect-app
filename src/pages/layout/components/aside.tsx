@@ -83,6 +83,10 @@ export default function Aside() {
       }
 
       switch (key) {
+        case 'statistic':
+          setDefaultKey(key)
+          navigate('/')
+          break;
         case 'collect':
           setDefaultKey(key)
           navigate('/'+key)

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import { useRoutes } from 'react-router-dom'
+import { Outlet, useRoutes } from 'react-router-dom'
 import routes from '@/router'
-import { Layout, theme } from 'antd';
+import { Layout, Skeleton, theme } from 'antd';
 import Aside from './components/aside';
 import Header from './components/header';
 
@@ -35,8 +35,9 @@ export default function (){
         <Header/>
         <Content style={{ margin: '80px 16px 0', overflow: 'initial' }}>
           <div style={{ padding: 24,minHeight:'calc(100vh - 68px - 80px - 16px)', background: colorBgContainer }}>
-            <Suspense fallback="loading">
-              <div className="main">{useRoutes(routes)}</div>
+            <Suspense fallback={<Skeleton active />}>
+              {/* <div className="main">{useRoutes(routes)}</div> */}
+              <Outlet/>
             </Suspense>
           </div>
         </Content>

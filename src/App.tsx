@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConfigProvider, theme } from 'antd';
-import Layout from './pages/layout';
+import routes from './router';
+import { useRoutes } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       algorithm:theme.defaultAlgorithm
     }}
   >
-    <Layout/>
+    {useRoutes(routes)}
   </ConfigProvider>
   );
 }

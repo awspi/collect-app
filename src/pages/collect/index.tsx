@@ -45,7 +45,9 @@ export default function Collect() {
       <Input placeholder='请输入任务标题...'/>
     </Form.Item>
     <Form.Item name="description" label="任务描述" rules={[{ required: true }]}>
-      <Input.TextArea placeholder='请输入任务描述...' />
+      <Input.TextArea placeholder='请输入任务描述...' autoSize={
+        { minRows: 4, maxRows: 6 }
+      }/>
     </Form.Item>
     <Form.Item name="end_time" label="截止日期" rules={[{required:true}]}>
       <DatePicker />

@@ -1,6 +1,7 @@
-import React, { lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
+import { Skeleton } from 'antd'
 
 
 const Layout = lazy(() => import('@/pages/layout'))
@@ -14,6 +15,9 @@ const Handin = lazy(() => import('@/pages/handin'))
 const JoinClass = lazy(() => import('@/pages/join-class'))
 
 const Unauth = lazy(()=> import('@/unauth-app'))
+
+//todo 优化 不在router中使用其他组件
+const lazyed=(cpn:React.ReactNode)=>(<Suspense fallback={<Skeleton active />}>{cpn}</Suspense>)
 
 
 const routes: RouteObject[] = [
@@ -58,7 +62,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/unauth',
-    element: <Unauth />
+    element: lazyed(<Unauth />)
   },
 ]
 
